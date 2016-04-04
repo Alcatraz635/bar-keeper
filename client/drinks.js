@@ -7,12 +7,9 @@ angular.module('drinks', [])
             get: function() {
                 return $http.get('/api/drinks');
             },
-            post: function() {
-                return $http.get('/api/drinks');
-            },
             delete: function() {
                 return $http.get('/api/drinks/:drink_id');
-            },
+            }
         }
     }
 ])
