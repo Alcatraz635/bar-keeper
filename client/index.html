@@ -1,18 +1,35 @@
 <!doctype html>
 <html>
-   
-   <head>
-         
-      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-      <script src = "drinks.js"></script>
-   </head>
-   
-   <body ng-app="drinks" >
-      <div ng-controller="archive">
-         <div ng-repeat="drink in whiskey">
-            <h1>I drink {{drink.name}}s</h1>
-         </div>
-      </div>
-      
-   </body>
+
+<head>
+    <title>Bar Keeper</title>
+    <!-- Boostrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" type="text/css" href="index.css">
+    <!-- Angular Javascript -->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+    <script src="drinks.js"></script>
+</head>
+
+<body ng-app="drinks">
+    <div class="col-xs-2"></div>
+    <div class="col-lg-8">
+        <div class="content" ng-controller="archive">
+            <div ng-include="'./archive/archive.html'"></div>
+        </div>
+    </div>
+    <div class="col-xs-2"></div>
+    <!-- JQuery Javascript-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
+    <script src="./js/jquery.bootstrap-responsive-tabs.min.js"></script>
+    <!-- Bootstrap Javascript-->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script>
+    $('.responsive-tabs').responsiveTabs({
+        accordionOn: ['xs', 'sm']
+    });
+    </script>
+</body>
+
 </html>
