@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+   
+   <head>
+         
+      <script src = "https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
+      <script src = "drinks.js"></script>
+   </head>
+   
+   <body ng-app="drinks" >
+      <div ng-controller="archive">
+         <div ng-repeat="drink in whiskey">
+            <h1>I drink {{drink.name}}s</h1>
+         </div>
+      </div>
+      
+   </body>
+</html>

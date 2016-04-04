@@ -1,0 +1,15 @@
+{
+  "name"         : "bar-keeper",
+  "version"      : "0.1.0",
+  "description"  : "Personal drink recipe lookup.",
+  "author"       : "Tyler Schumacher",
+  "main"         : "server.js",
+  "dependencies" : {
+    "express"    : "*",
+    "mongoose"   : "*",
+    "morgan"     : "*",
+    "body-parser": "*",
+    "method-override": "*",
+    "ejs": "*"
+    }
+}
