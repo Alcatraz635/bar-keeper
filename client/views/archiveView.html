@@ -1,43 +1,40 @@
 <h1 class="section-header">Archive</h1>
 <div class="panel panel-primary">
     <div class="panel-heading">
-         <!-- Tabs -->
-         <nav class="navbar navbar-default">
-  <div class="container-fluid">
-    <!-- Brand and toggle get grouped for better mobile display -->
-    <div class="navbar-header">
-      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#archive-collapse" aria-expanded="false">
-        <span class="sr-only">Toggle navigation</span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-        <span class="icon-bar"></span>
-      </button>
-    </div>
-
-    <!-- Collect the nav links, forms, and other content for toggling -->
-    <div class="collapse navbar-collapse" id="archive-collapse">
-
-        
-      <ul class="nav navbar-nav navbar-right">
-            <li ><a href="#allTab" data-toggle="tab" >All</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#brandyTab" data-toggle="tab">Brandy</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#ginTab" data-toggle="tab">Gin</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#rumTab" data-toggle="tab">Rum</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#tequilaTab" data-toggle="tab">Tequila</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#vodkaTab" data-toggle="tab">Vodka</a></li>
-            <li role="separator" class="divider"></li>
-            <li ><a href="#whiskeyTab" data-toggle="tab">Whiskey</a></li>
-         </ul>
-
-    </div><!-- /.navbar-collapse -->
-  </div><!-- /.container-fluid -->
-</nav>
-         
+        <!-- Tabs -->
+        <nav class="navbar navbar-default">
+            <div class="container-fluid">
+                <!-- Brand and toggle get grouped for better mobile display -->
+                <div class="navbar-header">
+                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#archive-collapse" aria-expanded="false">
+                        <span class="sr-only">Toggle navigation</span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </button>
+                </div>
+                <!-- Collect the nav links, forms, and other content for toggling -->
+                <div class="collapse navbar-collapse" id="archive-collapse">
+                    <ul class="nav navbar-nav navbar-right">
+                        <li><a href="#allTab" data-toggle="tab">All</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#brandyTab" data-toggle="tab">Brandy</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#ginTab" data-toggle="tab">Gin</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#rumTab" data-toggle="tab">Rum</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#tequilaTab" data-toggle="tab">Tequila</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#vodkaTab" data-toggle="tab">Vodka</a></li>
+                        <li role="separator" class="divider"></li>
+                        <li><a href="#whiskeyTab" data-toggle="tab">Whiskey</a></li>
+                    </ul>
+                </div>
+                <!-- /.navbar-collapse -->
+            </div>
+            <!-- /.container-fluid -->
+        </nav>
     </div>
     <div class="panel-body">
         <div class="tab-content responsive">
@@ -69,10 +66,7 @@
                 </div>
             </div>
             <div class="tab-pane fade" id="brandyTab">
-
-
-<div ng-repeat="drink in brandy | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in brandy | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -96,25 +90,9 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="tab-pane fade" id="ginTab">
-
-
-<div ng-repeat="drink in gin | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in gin | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -138,24 +116,9 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="tab-pane fade" id="rumTab">
-
-<div ng-repeat="drink in rum | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in rum | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -179,25 +142,9 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="tab-pane fade" id="tequilaTab">
-
-<div ng-repeat="drink in tequila | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in tequila | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -221,24 +168,9 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="tab-pane fade" id="vodkaTab">
-<div ng-repeat="drink in vodka | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in vodka | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -262,26 +194,9 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
             <div class="tab-pane fade" id="whiskeyTab">
-
-<div ng-repeat="drink in whiskey | orderBy: 'name'">
-                    
+                <div ng-repeat="drink in whiskey | orderBy: 'name'">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -305,21 +220,7 @@
                         <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
-
-
-
-
-
-
             </div>
-
-
-
-
-
-
-
-
         </div>
     </div>
 </div>

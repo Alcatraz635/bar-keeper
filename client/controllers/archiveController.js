@@ -1,10 +1,13 @@
-angular.module('drinks', [])
+angular.module('archive', [])
 
 
-.factory('drinksFactory', ['$http',
+.factory('factory', ['$http',
     function($http) {
         return {
             get: function() {
+                return $http.get('/api/drinks');
+            },
+            post: function() {
                 return $http.get('/api/drinks');
             },
             delete: function() {
@@ -14,14 +17,13 @@ angular.module('drinks', [])
     }
 ])
 
-.controller('archive', ['$scope', '$http', 'drinksFactory', function($scope, $http, drinksFactory) {
+.controller('archiveController', ['$scope', '$http', 'factory', function($scope, $http, factory) {
 
-    $scope.formData = {};
 
     // GET =====================================================================
     // when landing on the page, get all Drinks and show them
     // use the service to get all the Drinks
-    drinksFactory.get()
+    factory.get()
         .success(function(data) {
             $scope.drinks = data;
             $scope.whiskey = [];
@@ -59,4 +61,9 @@ angular.module('drinks', [])
         .error(function(data){
             console.log(data);
         });
-}]);
+}])
+
+.controller('newController', ['$scope', '$http','factory', function($scope, $http, $factory){
+    formData ={};
+    
+}])

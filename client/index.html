@@ -9,14 +9,15 @@
     <link rel="stylesheet" type="text/css" href="index.css">
     <!-- Angular Javascript -->
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.2/angular.min.js"></script>
-    <script src="drinks.js"></script>
+    <script type="js/angular.ng-modules.js"></script>
+    <script src="controllers/archiveController.js"></script>
 </head>
 
-<body ng-app="drinks">
+<body ng-app="archive">
     <div class="row clearfix">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
-            <div class="content" ng-controller="archive">
+            <div class="content">
                 <h1 style="text-align: center">Bar Keeper</h1>
                 <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">
@@ -45,9 +46,14 @@
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="archive">
-                        <div ng-include="'./archive/archive.html'" style="padding: 15px;"></div>
+                        <div ng-controller="archiveController">
+                            <div ng-include="'./views/archiveView.html'" style="padding: 15px;"></div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="new">
+                        <div ng-controller="newController">
+                            <div ng-include="'./views/newView.html'" style="padding: 15px;"></div>
+                        </div>
                     </div>
                     <div class="tab-pane fade" id="search">
                     </div>
@@ -59,7 +65,6 @@
     </div>
     <!-- JQuery Javascript-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.2/jquery.min.js"></script>
-    <script src="/js/jquery.bootstrap-responsive-tabs.min.js"></script>
     <!-- Bootstrap Javascript-->
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-backstretch/2.0.4/jquery.backstretch.min.js"></script>

@@ -1,0 +1,11 @@
+<form name="personForm2" ng-submit="submitData(drink, 'ajaxResult')" novalidate>
+    <label for="drinkName">Drink name:</label>
+    <input id="drinkName" type="text" name="drinkName" ng-model="drink.drinkName" required />
+    <br />
+    <br />
+    <button type="submit" ng-disabled="drink.$invalid">Submit</button>
+</form>
+<br />
+<strong><label for="submitDebug">Submit result:</label></strong>
+<br />
+<textarea id="submitDebug">{{ajaxResult | json}}</textarea>
