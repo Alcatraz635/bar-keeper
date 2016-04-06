@@ -1,29 +1,39 @@
-angular.module('archive', [])
+angular.module('barKeeper', [])
 
 
-.factory('factory', ['$http',
+.factory('barKeeperFacotry', ['$http',
     function($http) {
         return {
             get: function() {
                 return $http.get('/api/drinks');
             },
-            post: function() {
-                return $http.get('/api/drinks');
+            create: function(drinkData) {
+                return $http.post('/api/drinks', drinkData);
             },
             delete: function() {
-                return $http.get('/api/drinks/:drink_id');
+                return $http.delete('/api/drinks/:drink_id');
             }
         }
     }
 ])
 
-.controller('archiveController', ['$scope', '$http', 'factory', function($scope, $http, factory) {
+.controller('barKeeperController', ['$scope', '$http', 'barKeeperFacotry', function($scope, $http, barKeeperFacotry) {
 
-
+    //Data from form to create new drink
+    $scope.formData = {};
+    //CREATE==========================================================================
+    // Validate data from the form and send to Node API
+    $scope.createDrink = function() {
+        barKeeperFacotry.create($scope.formData)
+            .success(function(data) {
+                $scopeformData = {};
+                console.log(data);
+            })
+    };
     // GET =====================================================================
     // when landing on the page, get all Drinks and show them
     // use the service to get all the Drinks
-    factory.get()
+    barKeeperFacotry.get()
         .success(function(data) {
             $scope.drinks = data;
             $scope.whiskey = [];
@@ -58,12 +68,6 @@ angular.module('archive', [])
 
             }
         })
-        .error(function(data){
-            console.log(data);
-        });
-}])
 
-.controller('newController', ['$scope', '$http','factory', function($scope, $http, $factory){
-    formData ={};
-    
+
 }])

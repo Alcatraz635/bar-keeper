@@ -1,5 +1,5 @@
 <!doctype html>
-<html>
+<html ng-app="barKeeper" >
 
 <head>
     <title>Bar Keeper</title>
@@ -13,7 +13,7 @@
     <script src="controllers/archiveController.js"></script>
 </head>
 
-<body ng-app="archive">
+<body ng-controller="barKeeperController">
     <div class="row clearfix">
         <div class="col-xs-2"></div>
         <div class="col-xs-8">
@@ -46,12 +46,12 @@
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="archive">
-                        <div ng-controller="archiveController">
+                        <div >
                             <div ng-include="'./views/archiveView.html'" style="padding: 15px;"></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="new">
-                        <div ng-controller="newController">
+                        <div >
                             <div ng-include="'./views/newView.html'" style="padding: 15px;"></div>
                         </div>
                     </div>

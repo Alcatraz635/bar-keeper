@@ -35,7 +35,7 @@ var drinkSchema = new mongoose.Schema({
         min: 1,
         max: 200
     },
-    ingredientThreename: {
+    ingredientThreeName: {
         type: String,
         lowercase: true,
         min: 1,
@@ -59,7 +59,7 @@ var drinkSchema = new mongoose.Schema({
         min: 1,
         max: 200
     },
-    ingredientFivename: {
+    ingredientFiveName: {
         type: String,
         lowercase: true,
         min: 1,

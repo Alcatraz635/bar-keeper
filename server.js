@@ -7,15 +7,15 @@ var bodyParser = require('body-parser');
 var methodOverride = require('method-override');
 
 // configuration =================
-mongoose.connect('mongodb://tylerschumacher635:heidi225@ds021289.mlab.com:21289/bar-keeper-drinks');     // connect to mongoDB database on modulus.io
+// connect to mongoDB database on modulus.io
+mongoose.connect('mongodb://tylerschumacher635:heidi225@ds021289.mlab.com:21289/bar-keeper-drinks');
 
-//app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/client'));
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({'extended':'true'}));
 app.use(bodyParser.json());
 app.use(bodyParser.json({ type: 'application/vnd.api+json' }));
 app.use(methodOverride());
-app.use(express.static(__dirname + '/client'));
 app.set('views', './client'); 
 app.engine('html', require('ejs').renderFile);
 app.set('view engine', 'html');
