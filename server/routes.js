@@ -18,12 +18,7 @@ module.exports = function(app) {
         // get all drinks
         .get(function(req, res) {
             // use mongoose to get all drinks in the database
-            Drink.find(function(err, drinks) {
-                // if there is an error retrieving, send the error. nothing after res.send(err) will execute
-                if (err)
-                    res.send(err)
-                res.json(drinks); // return all drinks in JSON format
-            });
+            getDrinks(res);
         })
         // create drink and send back all drinks after creation
         .post(function(req, res) {
@@ -46,10 +41,7 @@ module.exports = function(app) {
                 notes: req.body.notes,
                 done: false
             }, function(err, drink) {
-                if (err)
-                    res.send(err);
-                // get and return all the drinks after you create another
-                getDrinks(res);
+                 getDrinks(res);
             });
         });
 

@@ -21,52 +21,58 @@ angular.module('barKeeper', [])
 
     //Data from form to create new drink
     $scope.formData = {};
+
+    function sortBaseSpirit(data){
+                $scope.drinks = data;
+                $scope.whiskey = [];
+                $scope.gin = [];
+                $scope.tequila = [];
+                $scope.vodka = [];
+                $scope.rum = [];
+                $scope.brandy = [];
+                for (drink in data) {
+                    switch ((data[drink].baseSpirit).toString()) {
+                        case "Whiskey":
+                            $scope.whiskey.push(data[drink])
+                            break;
+                        case "Gin":
+                            $scope.gin.push(data[drink])
+                            break;
+                        case "Tequila":
+                            $scope.tequila.push(data[drink])
+                            break;
+                        case "Vodka":
+                            $scope.vodka.push(data[drink])
+                            break;
+                        case "Rum":
+                            $scope.rum.push(data[drink])
+                            break;
+                        case "Brandy":
+                            $scope.brandy.push(data[drink])
+                            break;
+                        default:
+                            console.log("No base spirit? This must be a virgin cocktail");
+                    }
+
+                }
+    }
     //CREATE==========================================================================
     // Validate data from the form and send to Node API
     $scope.createDrink = function() {
         barKeeperFacotry.create($scope.formData)
             .success(function(data) {
-                $scopeformData = {};
-                console.log(data);
+                $scope.formData = {};
+                sortBaseSpirit(data);
             })
     };
+    //DELETE====================================================================
+    
     // GET =====================================================================
     // when landing on the page, get all Drinks and show them
     // use the service to get all the Drinks
     barKeeperFacotry.get()
         .success(function(data) {
-            $scope.drinks = data;
-            $scope.whiskey = [];
-            $scope.gin = [];
-            $scope.tequila = [];
-            $scope.vodka = [];
-            $scope.rum = [];
-            $scope.brandy = [];
-            for (drink in data) {
-                switch ((data[drink].baseSpirit).toString()) {
-                    case "Whiskey":
-                        $scope.whiskey.push(data[drink])
-                        break;
-                    case "Gin":
-                        $scope.gin.push(data[drink])
-                        break;
-                    case "Tequila":
-                        $scope.tequila.push(data[drink])
-                        break;
-                    case "Vodka":
-                        $scope.vodka.push(data[drink])
-                        break;
-                    case "Rum":
-                        $scope.rum.push(data[drink])
-                        break;
-                    case "Brandy":
-                        $scope.brandy.push(data[drink])
-                        break;
-                    default:
-                        console.log("No base spirit? This must be a virgin cocktail");
-                }
-
-            }
+            sortBaseSpirit(data);
         })
 
 
