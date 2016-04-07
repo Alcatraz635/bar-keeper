@@ -5,10 +5,11 @@ function getDrinks(res) {
 
         // if there is an error retrieving, send the error. nothing after res.send(err) will execute
         if (err) {
+            console.log(err);
             res.send(err);
         }
-
-        res.json(drinks); // return all todos in JSON format
+        // return all todos in JSON format
+        res.json(drinks);
     });
 };
 
@@ -28,8 +29,9 @@ module.exports = function(app) {
                 name: req.body.name,
                 baseSpirit: req.body.baseSpirit,
                 garnish: req.body.garnish,
+                glass: req.body.glass,
                 ingredientFiveAmount: req.body.ingredientFiveAmount,
-                ingredientFivename: req.body.ingredientFivename,
+                ingredientFiveName: req.body.ingredientFivename,
                 ingredientFourAmount: req.body.ingredientFourAmount,
                 ingredientFourName: req.body.ingredientFourName,
                 ingredientOneAmount: req.body.ingredientOneAmount,
@@ -41,24 +43,19 @@ module.exports = function(app) {
                 notes: req.body.notes,
                 done: false
             }, function(err, drink) {
-                 getDrinks(res);
-            });
+                getDrinks(res);
+            })
         });
 
     app.route('/api/drinks/:drink_id')
         // delete a drink
         .delete(function(req, res) {
-            drink.remove({
-                _id: req.params.drink_id
-            }, function(err, drink) {
-                if (err)
-                    res.send(err);
-                // get and return all the drinks after you create another
-                drink.find(function(err, drinks) {
-                    if (err)
-                        res.send(err)
-                    res.json(drinks);
+                console.log(req.params)
+                Drink.remove({
+                        _id: req.params.drink_id
+                    }, 
+                        function(err, drink) {
+                            getDrinks(res);
                 });
-            });
         });
 }

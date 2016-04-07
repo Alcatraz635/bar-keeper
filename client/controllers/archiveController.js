@@ -10,8 +10,8 @@ angular.module('barKeeper', [])
             create: function(drinkData) {
                 return $http.post('/api/drinks', drinkData);
             },
-            delete: function() {
-                return $http.delete('/api/drinks/:drink_id');
+            delete: function(id) {
+                return $http.delete('/api/drinks/' + id);
             }
         }
     }
@@ -21,7 +21,7 @@ angular.module('barKeeper', [])
 
     //Data from form to create new drink
     $scope.formData = {};
-
+ 
     function sortBaseSpirit(data){
                 $scope.drinks = data;
                 $scope.whiskey = [];
@@ -54,7 +54,7 @@ angular.module('barKeeper', [])
                             console.log("No base spirit? This must be a virgin cocktail");
                     }
 
-                }
+                } 
     }
     //CREATE==========================================================================
     // Validate data from the form and send to Node API
@@ -64,9 +64,15 @@ angular.module('barKeeper', [])
                 $scope.formData = {};
                 sortBaseSpirit(data);
             })
-    };
+    }
     //DELETE====================================================================
-    
+    $scope.deleteDrink = function(id){
+        console.log(id);
+        barKeeperFacotry.delete(id)
+            .success(function(data){
+                sortBaseSpirit(data);
+            });
+    }
     // GET =====================================================================
     // when landing on the page, get all Drinks and show them
     // use the service to get all the Drinks
@@ -76,4 +82,4 @@ angular.module('barKeeper', [])
         })
 
 
-}])
+}]);

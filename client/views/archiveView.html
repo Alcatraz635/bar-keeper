@@ -1,4 +1,13 @@
 <h1 class="section-header">Archive</h1>
+<div class="input-group stylish-input-group">
+                    <input type="text" class="form-control"  placeholder="Search name, ingredients, drinkware, etc." ng-model="searchText">
+                    <span class="input-group-addon">
+                        <button type="submit">
+                            <span class="glyphicon glyphicon-search"></span>
+                        </button>  
+                    </span>
+                </div>
+                <br>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <!-- Tabs -->
@@ -40,18 +49,22 @@
         <div class="tab-content responsive">
             <!-- Whiskey drink recipes -->
             <div class="tab-pane fade in active" id="allTab">
-                <div ng-repeat="drink in drinks | orderBy: 'name'">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                <div ng-repeat="drink in drinks | orderBy: 'name' | filter:searchText">
+                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}}) 
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id)" type="submit">
+                            Delete
+                        </button>
+                    </legend>
                     <div class="col-sm-6">
                         <h4>
                   Ingredients
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -60,13 +73,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="brandyTab">
-                <div ng-repeat="drink in brandy | orderBy: 'name'">
+                <div ng-repeat="drink in brandy | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -74,10 +87,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -86,13 +99,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="ginTab">
-                <div ng-repeat="drink in gin | orderBy: 'name'">
+                <div ng-repeat="drink in gin | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -100,10 +113,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -112,13 +125,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="rumTab">
-                <div ng-repeat="drink in rum | orderBy: 'name'">
+                <div ng-repeat="drink in rum | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -126,10 +139,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -138,13 +151,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="tequilaTab">
-                <div ng-repeat="drink in tequila | orderBy: 'name'">
+                <div ng-repeat="drink in tequila | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -152,10 +165,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -164,13 +177,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="vodkaTab">
-                <div ng-repeat="drink in vodka | orderBy: 'name'">
+                <div ng-repeat="drink in vodka | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -178,10 +191,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -190,13 +203,13 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>
             <div class="tab-pane fade" id="whiskeyTab">
-                <div ng-repeat="drink in whiskey | orderBy: 'name'">
+                <div ng-repeat="drink in whiskey | orderBy: 'name' | filter:searchText">
                     <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
                     <div class="col-sm-6">
                         <h4>
@@ -204,10 +217,10 @@
                   </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
-                        <span ng-if="drink.ingredientTwoName != ''"><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
-                        <span ng-if="drink.ingredientThreeName != ''"><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
-                        <span ng-if="drink.ingredientFourName != ''"><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
-                        <span ng-if="drink.ingredientFiveName != ''"><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
+                        <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
+                        <span ng-if="drink.ingredientThreeName "><p>{{drink.ingredientThreeAmount}} of {{drink.ingredientThreeName}}</p></span>
+                        <span ng-if="drink.ingredientFourName "><p>{{drink.ingredientFourAmount}} of {{drink.ingredientFourName}}</p></span>
+                        <span ng-if="drink.ingredientFiveName "><p>{{drink.ingredientFiveAmount}} of {{drink.ingredientFiveName}}</p></span>
                     </div>
                     <div class="col-sm-6">
                         <h4>
@@ -216,8 +229,8 @@
                         <br>
                         <p><strong>Drinkware:</strong>
                             <br>Serve in a {{drink.glass}} glass</p>
-                        <span ng-if="drink.garnish != ''"><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
-                        <span ng-if="drink.garnish != ''"><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
+                        <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
                 </div>
             </div>

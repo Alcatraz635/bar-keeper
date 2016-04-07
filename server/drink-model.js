@@ -41,7 +41,7 @@ var drinkSchema = new mongoose.Schema({
         min: 1,
         max: 200
     },
-    ingredientFourname: {
+    ingredientFourName: {
         type: String,
         min: 1,
         max: 200
