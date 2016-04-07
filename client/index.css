@@ -39,7 +39,7 @@ legend
     font-size: 21px;
     line-height: inherit;
     margin-bottom: 20px;
-    padding-top: ;
+    padding-top: 15px;
     width: 100%;
     text-transform: capitalize;
 }
@@ -371,4 +371,12 @@ li.active:after
     border-right:0; 
     box-shadow:0 0 0; 
     border-color:#ccc;
+}
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #f6f8f9;
+    background-color: #010101;
 }

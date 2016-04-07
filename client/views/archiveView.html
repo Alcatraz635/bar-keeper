@@ -50,11 +50,18 @@
             <!-- Whiskey drink recipes -->
             <div class="tab-pane fade in active" id="allTab">
                 <div ng-repeat="drink in drinks | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}}) 
+                    
+                        <div class="col-sm-10">
+                        <legend>
+                        <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend> 
+                        </div>
+                        <div class="col-sm-2">
                         <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id)" type="submit">
                             Delete
                         </button>
-                    </legend>
+                        </div>
+                    
                     <div class="col-sm-6">
                         <h4>
                   Ingredients
@@ -76,6 +83,7 @@
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
+                    
                 </div>
             </div>
             <div class="tab-pane fade" id="brandyTab">
