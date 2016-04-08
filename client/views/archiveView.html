@@ -1,13 +1,19 @@
+<span ng-if="deleteSuccessFlag">
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+        <h3>{{deletedDrink}} Deleted</h3>
+    </div>
+</span>
 <h1 class="section-header">Archive</h1>
 <div class="input-group stylish-input-group">
-                    <input type="text" class="form-control"  placeholder="Search name, ingredients, drinkware, etc." ng-model="searchText">
-                    <span class="input-group-addon">
-                       
-                            <span class="glyphicon glyphicon-search"></span>
-                    
-                    </span>
-                </div>
-                <br>
+    <input type="text" class="form-control"  placeholder="Search name, ingredients, drinkware, etc." ng-model="searchText">
+    <span class="input-group-addon">
+        
+        <span class="glyphicon glyphicon-search"></span>
+        
+    </span>
+</div>
+<br>
 <div class="panel panel-primary">
     <div class="panel-heading">
         <!-- Tabs -->
@@ -16,10 +22,10 @@
                 <!-- Brand and toggle get grouped for better mobile display -->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#archive-collapse" aria-expanded="false">
-                        <span class="sr-only">Toggle navigation</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
                     </button>
                 </div>
                 <!-- Collect the nav links, forms, and other content for toggling -->
@@ -51,21 +57,21 @@
             <div class="tab-pane fade in active" id="allTab">
                 <div ng-repeat="drink in drinks | orderBy: 'name' | filter:searchText">
                     
-                        <div class="col-sm-10">
+                    <div class="col-sm-10">
                         <legend>
-                        <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
-                        </legend> 
-                        </div>
-                        <div class="col-sm-2">
-                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id)" type="submit">
-                            Delete
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
                         </button>
-                        </div>
+                    </div>
                     
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong><strong>Ingredients</strong></strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -75,11 +81,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -88,11 +94,20 @@
             </div>
             <div class="tab-pane fade" id="brandyTab">
                 <div ng-repeat="drink in brandy | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -102,11 +117,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -114,11 +129,20 @@
             </div>
             <div class="tab-pane fade" id="ginTab">
                 <div ng-repeat="drink in gin | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -128,11 +152,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -140,11 +164,20 @@
             </div>
             <div class="tab-pane fade" id="rumTab">
                 <div ng-repeat="drink in rum | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -154,11 +187,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -166,11 +199,20 @@
             </div>
             <div class="tab-pane fade" id="tequilaTab">
                 <div ng-repeat="drink in tequila | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -180,11 +222,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -192,11 +234,20 @@
             </div>
             <div class="tab-pane fade" id="vodkaTab">
                 <div ng-repeat="drink in vodka | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -206,11 +257,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>
@@ -218,11 +269,20 @@
             </div>
             <div class="tab-pane fade" id="whiskeyTab">
                 <div ng-repeat="drink in whiskey | orderBy: 'name' | filter:searchText">
-                    <legend><strong>{{drink.name}}</strong> ({{drink.baseSpirit}})</legend>
+                    <div class="col-sm-10">
+                        <legend>
+                            <strong>{{drink.name}}</strong> ({{drink.baseSpirit}})
+                        </legend>
+                    </div>
+                    <div class="col-sm-2">
+                        <button class="btn btn-sm" name="submit" ng-click="deleteDrink(drink._id, drink.name)" type="submit">
+                        Delete
+                        </button>
+                    </div>
                     <div class="col-sm-6">
                         <h4>
-                  Ingredients
-                  </h4>
+                        <strong>Ingredients</strong>
+                        </h4>
                         <br>
                         <p>{{drink.ingredientOneAmount}} of {{drink.ingredientOneName}}</p>
                         <span ng-if="drink.ingredientTwoName "><p>{{drink.ingredientTwoAmount}} of {{drink.ingredientTwoName}}</p></span>
@@ -232,11 +292,11 @@
                     </div>
                     <div class="col-sm-6">
                         <h4>
-                  Preperation
-                  </h4>
+                        <strong>Preperation</strong>
+                        </h4>
                         <br>
                         <p><strong>Drinkware:</strong>
-                            <br>Serve in a {{drink.glass}} glass</p>
+                        <br>Serve in a {{drink.glass}} glass</p>
                         <span ng-if="drink.garnish "><p><strong>Garnish:</strong><br>Garnish with {{drink.garnish}}</p></span>
                         <span ng-if="drink.garnish "><p><strong>Notes:</strong><br>{{drink.notes}}</p></span>
                     </div>

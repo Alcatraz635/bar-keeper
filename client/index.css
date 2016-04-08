@@ -43,6 +43,9 @@ legend
     width: 100%;
     text-transform: capitalize;
 }
+h1, h2, h3, h4, h5, h6{
+    text-transform: capitalize;
+}
 .panel-heading
 {
     border-bottom: none;
@@ -390,4 +393,13 @@ li.active:after
     background-color: #eee;
     border: 1px solid #ccc;
     border-radius: 4px;
+}
+.btn-sm {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+    color: #f6f8f9;
+    background-color: #010101;
+    margin-top: 15px;
 }

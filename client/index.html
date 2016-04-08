@@ -1,5 +1,5 @@
 <!doctype html>
-<html ng-app="barKeeper" >
+<html ng-app="barKeeper">
 
 <head>
     <title>Bar Keeper</title>
@@ -17,12 +17,11 @@
 
 <body ng-controller="barKeeperController">
     <div class="row clearfix">
-        <div class="col-xs-12" >
+        <div class="col-xs-12">
             <div class="content">
                 <h1 style="text-align: center">Bar Keeper</h1>
                 <div class="board-inner">
                     <ul class="nav nav-tabs" id="myTab">
-                        
                         <li class="active">
                             <a href="#archive" data-toggle="tab" title="archive">
                                 <span class="round-tabs one">
@@ -37,17 +36,16 @@
                      </span>
                             </a>
                         </li>
-                        
                     </ul>
                 </div>
                 <div class="tab-content">
                     <div class="tab-pane fade in active" id="archive">
-                        <div >
+                        <div>
                             <div ng-include="'./views/archiveView.html'" style="padding: 15px;"></div>
                         </div>
                     </div>
                     <div class="tab-pane fade" id="new">
-                        <div >
+                        <div>
                             <div ng-include="'./views/newView.html'" style="padding: 15px;"></div>
                         </div>
                     </div>

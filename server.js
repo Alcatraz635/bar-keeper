@@ -27,6 +27,6 @@ app.listen(3000);
 console.log("App listening on port 3000");
 
 	//set root view
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
          res.render('index.html');
     });
