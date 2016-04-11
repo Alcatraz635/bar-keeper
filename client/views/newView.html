@@ -7,8 +7,8 @@
                 <label class="control-label requiredField" for="name">
                     Name
                     <span class="asteriskField">
-        *
-       </span>
+                        *
+                    </span>
                 </label>
                 <input ng-model="formData.name" class="form-control" id="name" name="name" placeholder="e.g. 'Manhattan'" type="text" />
             </div>
@@ -16,8 +16,8 @@
                 <label class="control-label requiredField" for="baseSpirit">
                     Base Spirit
                     <span class="asteriskField">
-        *
-       </span>
+                        *
+                    </span>
                 </label>
                 <select ng-model="formData.baseSpirit" class="select form-control" id="baseSpirit" name="baseSpirit">
                     <option value="Brandy">
@@ -44,8 +44,8 @@
                 <label class="control-label requiredField" for="ingredientOneName">
                     Ingredient One
                     <span class="asteriskField">
-        *
-       </span>
+                        *
+                    </span>
                 </label>
                 <input ng-model="formData.ingredientOneName" class="form-control" id="ingredientOneName" name="ingredientOneName" placeholder="e.g. 'Rye'" type="text" />
             </div>
@@ -53,8 +53,8 @@
                 <label class="control-label requiredField" for="ingredientOneAmount">
                     Ingredient One Amount
                     <span class="asteriskField">
-        *
-       </span>
+                        *
+                    </span>
                 </label>
                 <input ng-model="formData.ingredientOneAmount" class="form-control" id="ingredientOneAmount" name="ingredientOneAmount" placeholder="e.g. '2 oz'" type="text" />
             </div>
@@ -112,21 +112,12 @@
                 </label>
                 <input ng-model="formData.garnish" class="form-control" id="garnish" name="garnish" placeholder="'Maraschino Cherry'" type="text" />
             </div>
-
-
-
-
             <div class="form-group form-group-lg">
                 <label class="control-label " for="glass">
                     Drinkware
                 </label>
                 <input ng-model="formData.glass" class="form-control" id="glass" name="glass" placeholder="'Cocktail'" type="text" />
             </div>
-
-
-
-
-
             <div class="form-group form-group-lg">
                 <label class="control-label " for="notes">
                     Notes
@@ -136,10 +127,16 @@
             <div class="form-group">
                 <div>
                     <button class="btn btn-custom btn-lg btn-block" name="submit" ng-click="createDrink()" type="submit" ng-disabled="drink.$invalid">
-                        Save
+                    Save
                     </button>
                 </div>
             </div>
         </form>
+        <span ng-if="createSuccessFlag">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3>{{createdDrink}} Created!</h3>
+            </div>
+        </span>
     </div>
 </div>
