@@ -1,6 +1,12 @@
 <!-- New drink form -->
 <div class="bootstrap-iso">
     <div class="container-fluid">
+        <span ng-if="createSuccessFlag">
+            <div class="alert alert-success alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h3>{{createdDrink}} Created!</h3>
+            </div>
+        </span>
         <h1 class="section-header">New Drink</h1>
         <form ng-submit="submitData(drink, 'ajaxResult')" novalidate>
             <div class="form-group form-group-lg">
@@ -122,7 +128,13 @@
                 <label class="control-label " for="notes">
                     Notes
                 </label>
-                <textarea ng-model="formData.notes" class="form-control" cols="40" id="notes" name="notes" placeholder="e.g. 'Stir and serve up'" rows="10"></textarea>
+                <textarea ng-model="formData.notes" class="form-control" cols="20" id="notes" name="notes" placeholder="e.g. 'Stir and serve up'" rows="5"></textarea>
+            </div>
+            <div class="form-group form-group-lg">
+                <label class="control-label " for="notes">
+                    History
+                </label>
+                <textarea ng-model="formData.history" class="form-control" cols="40" id="history" name="history" placeholder="e.g. 'A popular history suggests that the drink originated at the Manhattan Club in New York City in the early 1870s, where it was invented by Dr. Iain Marshall for a banquet hosted by Jennie Jerome (Lady Randolph Churchill, Winston's mother) in honor of presidential candidate Samuel J. Tilden.'" rows="10"></textarea>
             </div>
             <div class="form-group">
                 <div>
@@ -132,11 +144,5 @@
                 </div>
             </div>
         </form>
-        <span ng-if="createSuccessFlag">
-            <div class="alert alert-success alert-dismissible" role="alert">
-                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                <h3>{{createdDrink}} Created!</h3>
-            </div>
-        </span>
     </div>
 </div>

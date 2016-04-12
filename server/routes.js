@@ -41,6 +41,7 @@ module.exports = function(app) {
                 ingredientTwoAmount: req.body.ingredientTwoAmount,
                 ingredientTwoName: req.body.ingredientTwoName,
                 notes: req.body.notes,
+                notes: req.body.history,
                 done: false
             }, function(err, drink) {
                 getDrinks(res);

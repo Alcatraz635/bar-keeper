@@ -403,3 +403,8 @@ li.active:after
     background-color: #010101;
     margin-top: 15px;
 }
+.alert-success {
+    color: #010101;
+    background-color: #f6f8f9;
+    border-color: #d4af37;
+}

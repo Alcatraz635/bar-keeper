@@ -11,12 +11,5 @@
     "body-parser": "*",
     "method-override": "*",
     "ejs": "*"
-    },
-  "devDependencies": {
-    "grunt": "*",
-    "grunt-contrib-jshint": "*",
-    "grunt-contrib-nodeunit": "*",
-    "grunt-contrib-uglify": "*
-    "
-  }
+    }
 }
