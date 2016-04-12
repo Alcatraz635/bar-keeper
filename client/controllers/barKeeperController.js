@@ -36,7 +36,7 @@ angular.module('barKeeper', [])
 
         //Name of last created drink
         $scope.createdDrink = "";
-        //Function to sort drinks into base spirit cat
+        //Function to sort drinks into base spirit arrays
         function sortBaseSpirit(data) {
             $scope.drinks = data;
             $scope.whiskey = [];

@@ -3,7 +3,7 @@
   "version"      : "0.1.0",
   "description"  : "Personal drink recipe lookup.",
   "author"       : "Tyler Schumacher",
-  "main"         : "server.js",
+  "main"         : "app.js",
   "dependencies" : {
     "express"    : "*",
     "mongoose"   : "*",
